@@ -1,5 +1,7 @@
 package com.example.triqui
 
+import android.app.AlertDialog
+import android.app.ProgressDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -8,6 +10,10 @@ import android.view.animation.AnimationUtils
 import android.widget.TextView
 import android.widget.Toast
 import java.lang.Math.random
+import android.content.DialogInterface
+
+
+
 
 class MainActivity : AppCompatActivity() {
     private val zero by lazy<TextView> { findViewById(R.id.zero) }
@@ -20,8 +26,11 @@ class MainActivity : AppCompatActivity() {
     private val seven by lazy<TextView> { findViewById(R.id.seven) }
     private val eight by lazy<TextView> { findViewById(R.id.eight) }
     private val reset by lazy<TextView> { findViewById(R.id.reset) }
+    private val quit by lazy<TextView> { findViewById(R.id.quit) }
+    private val dificulty by lazy<TextView> { findViewById(R.id.dificulty) }
     private var turn = false
     private var mBoard = charArrayOf('1', '2', '3', '4', '5', '6', '7', '8', '9')
+    lateinit var progressDialog: ProgressDialog
     val HUMAN_PLAYER = 'X'
     val COMPUTER_PLAYER = 'O'
     private var BOARD_SIZE = 9
@@ -31,6 +40,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        progressDialog = ProgressDialog(this)
         val animationScale = AnimationUtils.loadAnimation(this, R.anim.button_choice_small)
         setListeners(animationScale)
     }
@@ -205,6 +215,36 @@ class MainActivity : AppCompatActivity() {
             BOARD_SIZE = 9
             finish = false
             turn = false
+        }
+
+        quit.setOnClickListener {
+            val builder = AlertDialog.Builder(this)
+            builder.setTitle("¿Desea salir?")
+            builder.setPositiveButton("Sí") { dialog, which ->
+                onBackPressed()
+            }
+            builder.setNegativeButton("No") { dialog, which ->
+            }
+            builder.show()
+            //builder.setMessage("¿Deseas suscribirte?")
+            //
+        }
+
+        dificulty.setOnClickListener {
+            val builder = AlertDialog.Builder(this)
+            builder.setTitle("Seleccione la dificultad")
+            val dificulty = arrayOf("Fácil", "Difícil", "Extrema")
+            builder.setItems(dificulty,
+                DialogInterface.OnClickListener { dialog, which ->
+                    when (which) {
+                        0->0
+                        1->1
+                        2->2
+                    }
+                })
+            builder.show()
+            //builder.setMessage("¿Deseas suscribirte?")
+            //
         }
     }
 
