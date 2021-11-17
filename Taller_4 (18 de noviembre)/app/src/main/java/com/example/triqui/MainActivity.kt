@@ -11,6 +11,8 @@ import android.widget.TextView
 import android.widget.Toast
 import java.lang.Math.random
 import android.content.DialogInterface
+import android.media.MediaPlayer
+import android.provider.MediaStore
 
 
 class MainActivity : AppCompatActivity() {
@@ -34,6 +36,9 @@ class MainActivity : AppCompatActivity() {
     private var BOARD_SIZE = 9
     private var finish = false
     private var dificultad = 2
+    lateinit var mediaPlayerEmpate: MediaPlayer
+    lateinit var mediaPlayerPerder: MediaPlayer
+    lateinit var mediaPlayerGanar: MediaPlayer
     //private val mRand: Random? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,6 +47,9 @@ class MainActivity : AppCompatActivity() {
         progressDialog = ProgressDialog(this)
         val animationScale = AnimationUtils.loadAnimation(this, R.anim.button_choice_small)
         setListeners(animationScale)
+        mediaPlayerEmpate=MediaPlayer.create(this, R.raw.empate)
+        mediaPlayerGanar=MediaPlayer.create(this, R.raw.ganar)
+        mediaPlayerPerder=MediaPlayer.create(this, R.raw.perder)
     }
 
     private fun checkForWinner(): Int {
@@ -51,12 +59,14 @@ class MainActivity : AppCompatActivity() {
                 if (mBoard[i] == HUMAN_PLAYER && mBoard[i + 1] == HUMAN_PLAYER && mBoard[i + 2] == HUMAN_PLAYER
                 ) {
                     Toast.makeText(this, "Ganó el Humano", Toast.LENGTH_LONG).show()
+                    mediaPlayerGanar.start()
                     finish = true
                     return 2
                 }
                 if (mBoard[i] == COMPUTER_PLAYER && mBoard[i + 1] == COMPUTER_PLAYER && mBoard[i + 2] == COMPUTER_PLAYER
                 ) {
                     Toast.makeText(this, "Ganó la máquina", Toast.LENGTH_LONG).show()
+                    mediaPlayerPerder.start()
                     finish = true
                     return 3
                 }
@@ -70,6 +80,7 @@ class MainActivity : AppCompatActivity() {
                     "Ganó el Humano",
                     Toast.LENGTH_LONG
                 ).show()
+                mediaPlayerGanar.start()
                 finish = true
                 return 2
             }
@@ -79,6 +90,7 @@ class MainActivity : AppCompatActivity() {
                     "Ganó la máquina",
                     Toast.LENGTH_LONG
                 ).show()
+                mediaPlayerPerder.start()
                 finish = true
                 return 3
             }
@@ -87,6 +99,7 @@ class MainActivity : AppCompatActivity() {
             mBoard[2] == HUMAN_PLAYER && mBoard[4] == HUMAN_PLAYER && mBoard[6] == HUMAN_PLAYER
         ) {
             Toast.makeText(this, "Ganó el Humano", Toast.LENGTH_LONG).show()
+            mediaPlayerGanar.start()
             finish = true
             return 2
         }
@@ -94,11 +107,13 @@ class MainActivity : AppCompatActivity() {
             mBoard[2] == COMPUTER_PLAYER && mBoard[4] == COMPUTER_PLAYER && mBoard[6] == COMPUTER_PLAYER
         ) {
             Toast.makeText(this, "Ganó la máquina", Toast.LENGTH_LONG).show()
+            mediaPlayerPerder.start()
             finish = true
             return 3
         }
         if (BOARD_SIZE == 0) {
             Toast.makeText(this, "Empate", Toast.LENGTH_LONG).show()
+            mediaPlayerEmpate.start()
             finish = true
             return 1
         }
