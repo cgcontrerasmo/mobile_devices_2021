@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp"
+                    android:text="Triqui"
+                    android:textColor="@color/black"
+                    android:textSize="50sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/zero"
+                    android:layout_width="@dimen/tamannoRejilla"
+                    android:layout_height="@dimen/tamannoRejilla"
+                    android:layout_marginTop="100dp"
+                    android:background="@drawable/vacio"
+                    app:layout_constraintEnd_toStartOf="@+id/one"
+                    app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+                <TextView
+                    android:id="@+id/one"
+                    android:layout_width="@dimen/tamannoRejilla"
+                    android:layout_height="@dimen/tamannoRejilla"
+                    android:layout_marginTop="100dp"
+                    android:background="@drawable/vacio"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+                <TextView
+                    android:id="@+id/two"
+                    android:layout_width="@dimen/tamannoRejilla"
+                    android:layout_height="@dimen/tamannoRejilla"
+                    android:layout_marginTop="100dp"
+                    android:background="@drawable/vacio"
+                    app:layout_constraintStart_toEndOf="@+id/one"
+                    app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+                <TextView
+                    android:id="@+id/three"
+                    android:layout_width="@dimen/tamannoRejilla"
+                    android:layout_height="@dimen/tamannoRejilla"
+                    android:background="@drawable/vacio"
+                    app:layout_constraintEnd_toStartOf="@+id/one"
+                    app:layout_constraintTop_toBottomOf="@+id/one" />
+
+                <TextView
+                    android:id="@+id/four"
+                    android:layout_width="@dimen/tamannoRejilla"
+                    android:layout_height="@dimen/tamannoRejilla"
+                    android:background="@drawable/vacio"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/one" />
+
+                <TextView
+                    android:id="@+id/five"
+                    android:layout_width="@dimen/tamannoRejilla"
+                    android:layout_height="@dimen/tamannoRejilla"
+                    android:background="@drawable/vacio"
+                    app:layout_constraintStart_toEndOf="@+id/one"
+                    app:layout_constraintTop_toBottomOf="@+id/one" />
+
+                <TextView
+                    android:id="@+id/six"
+                    android:layout_width="@dimen/tamannoRejilla"
+                    android:layout_height="@dimen/tamannoRejilla"
+                    android:background="@drawable/vacio"
+                    app:layout_constraintEnd_toStartOf="@+id/one"
+                    app:layout_constraintTop_toBottomOf="@+id/five" />
+
+                <TextView
+                    android:id="@+id/seven"
+                    android:layout_width="@dimen/tamannoRejilla"
+                    android:layout_height="@dimen/tamannoRejilla"
+                    android:background="@drawable/vacio"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/five" />
+
+                <TextView
+                    android:id="@+id/eight"
+                    android:layout_width="@dimen/tamannoRejilla"
+                    android:layout_height="@dimen/tamannoRejilla"
+                    android:background="@drawable/vacio"
+                    app:layout_constraintStart_toEndOf="@+id/one"
+                    app:layout_constraintTop_toBottomOf="@+id/five" />
+
+                <Button
+                    android:id="@+id/quit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50sp"
+                    android:text="salir"
+                    android:textSize="15sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <Button
+                    android:id="@+id/reset"
+                    android:layout_width="150sp"
+                    android:layout_height="50sp"
+                    android:layout_marginRight="5sp"
+                    android:text="Juego Nuevo"
+                    android:textSize="15sp"
+                    android:layout_marginTop="50dp"
+                    app:layout_constraintTop_toBottomOf="@id/eight"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/quit" />
+
+                <Button
+                    android:id="@+id/dificulty"
+                    android:layout_width="150sp"
+                    android:layout_height="50sp"
+                    android:layout_marginLeft="5sp"
+                    android:text="Dificultad"
+                    android:textSize="15sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/quit" />
+
+                <TextView
+                    android:id="@+id/humano"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Humano: "
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+                <TextView
+                    android:id="@+id/maquina"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Máquina: "
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/humano" />
+
+                <TextView
+                    android:id="@+id/empates"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Empates:"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/maquina" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </ScrollView>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
