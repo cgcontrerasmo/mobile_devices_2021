@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="68dp"
+        android:text="Triqui"
+        android:textColor="@color/black"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/humano"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="Humano: "
+        app:layout_constraintEnd_toStartOf="@+id/textView"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <TextView
+        android:id="@+id/scoreHumano"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView2"
+        app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintStart_toEndOf="@+id/empates"
+        app:layout_constraintTop_toBottomOf="@+id/scoreMaquina"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/maquina"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Máquina: "
+        app:layout_constraintStart_toStartOf="@+id/humano"
+        app:layout_constraintTop_toBottomOf="@+id/humano"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/scoreMaquina"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView2"
+        app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintStart_toEndOf="@+id/maquina"
+        app:layout_constraintTop_toBottomOf="@+id/scoreEmpates"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/scoreEmpates"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView2"
+        app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintStart_toEndOf="@+id/humano"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/empates"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Empates:"
+        app:layout_constraintStart_toStartOf="@+id/maquina"
+        app:layout_constraintTop_toBottomOf="@+id/maquina"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/zero"
+        android:layout_width="@dimen/tamannoRejilla"
+        android:layout_height="@dimen/tamannoRejilla"
+        android:background="@drawable/vacio"
+        tools:ignore="MissingConstraints"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="50dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/eight"
+        android:layout_width="@dimen/tamannoRejilla"
+        android:layout_height="@dimen/tamannoRejilla"
+        android:background="@drawable/vacio"
+        app:layout_constraintStart_toEndOf="@+id/seven"
+        app:layout_constraintTop_toBottomOf="@+id/five"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/four"
+        android:layout_width="@dimen/tamannoRejilla"
+        android:layout_height="@dimen/tamannoRejilla"
+        android:background="@drawable/vacio"
+        app:layout_constraintStart_toEndOf="@+id/three"
+        app:layout_constraintTop_toBottomOf="@+id/one"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/two"
+        android:layout_width="@dimen/tamannoRejilla"
+        android:layout_height="@dimen/tamannoRejilla"
+        android:background="@drawable/vacio"
+        app:layout_constraintBottom_toBottomOf="@+id/one"
+        app:layout_constraintStart_toEndOf="@+id/one"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/seven"
+        android:layout_width="@dimen/tamannoRejilla"
+        android:layout_height="@dimen/tamannoRejilla"
+        android:background="@drawable/vacio"
+        app:layout_constraintStart_toEndOf="@+id/six"
+        app:layout_constraintTop_toBottomOf="@+id/four"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/five"
+        android:layout_width="@dimen/tamannoRejilla"
+        android:layout_height="@dimen/tamannoRejilla"
+        android:background="@drawable/vacio"
+        app:layout_constraintStart_toEndOf="@+id/four"
+        app:layout_constraintTop_toBottomOf="@+id/two"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/six"
+        android:layout_width="@dimen/tamannoRejilla"
+        android:layout_height="@dimen/tamannoRejilla"
+        android:background="@drawable/vacio"
+        app:layout_constraintStart_toStartOf="@+id/three"
+        app:layout_constraintTop_toBottomOf="@+id/three"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/three"
+        android:layout_width="@dimen/tamannoRejilla"
+        android:layout_height="@dimen/tamannoRejilla"
+        android:background="@drawable/vacio"
+        app:layout_constraintEnd_toEndOf="@+id/zero"
+        app:layout_constraintTop_toBottomOf="@+id/zero"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/one"
+        android:layout_width="@dimen/tamannoRejilla"
+        android:layout_height="@dimen/tamannoRejilla"
+        android:background="@drawable/vacio"
+        app:layout_constraintBottom_toBottomOf="@+id/zero"
+        app:layout_constraintStart_toEndOf="@+id/zero"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/quit"
+        android:layout_width="wrap_content"
+        android:layout_height="50sp"
+        android:text="salir"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="@+id/dificulty"
+        app:layout_constraintStart_toStartOf="@+id/dificulty"
+        app:layout_constraintTop_toBottomOf="@+id/dificulty"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/dificulty"
+        android:layout_width="150sp"
+        android:layout_height="50sp"
+        android:text="Dificultad"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="@+id/reset"
+        app:layout_constraintTop_toBottomOf="@+id/reset"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/reset"
+        android:layout_width="150sp"
+        android:layout_height="50sp"
+        android:text="Juego Nuevo"
+        android:textSize="15sp"
+        android:layout_marginTop="70dp"
+        app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/scoreHumano" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

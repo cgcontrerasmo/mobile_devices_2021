@@ -2,6 +2,7 @@ package com.example.triqui
 
 import android.app.AlertDialog
 import android.app.ProgressDialog
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -11,8 +12,10 @@ import android.widget.TextView
 import android.widget.Toast
 import java.lang.Math.random
 import android.content.DialogInterface
+import android.content.SharedPreferences
 import android.media.MediaPlayer
 import android.provider.MediaStore
+import android.util.Log
 
 
 class MainActivity : AppCompatActivity() {
@@ -28,6 +31,9 @@ class MainActivity : AppCompatActivity() {
     private val reset by lazy<TextView> { findViewById(R.id.reset) }
     private val quit by lazy<TextView> { findViewById(R.id.quit) }
     private val dificulty by lazy<TextView> { findViewById(R.id.dificulty) }
+    private val humanoView by lazy<TextView> { findViewById(R.id.scoreHumano) }
+    private val maquinaView by lazy<TextView> { findViewById(R.id.scoreMaquina) }
+    private val empateView by lazy<TextView> { findViewById(R.id.scoreEmpates) }
     private var turn = false
     private var mBoard = charArrayOf('1', '2', '3', '4', '5', '6', '7', '8', '9')
     lateinit var progressDialog: ProgressDialog
@@ -42,6 +48,10 @@ class MainActivity : AppCompatActivity() {
     lateinit var mediaPlayerEmpate: MediaPlayer
     lateinit var mediaPlayerPerder: MediaPlayer
     lateinit var mediaPlayerGanar: MediaPlayer
+    lateinit var sharedPreference: SharedPreferences
+    lateinit var editor: SharedPreferences.Editor
+
+
     //private val mRand: Random? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -50,9 +60,20 @@ class MainActivity : AppCompatActivity() {
         progressDialog = ProgressDialog(this)
         val animationScale = AnimationUtils.loadAnimation(this, R.anim.button_choice_small)
         setListeners(animationScale)
-        mediaPlayerEmpate=MediaPlayer.create(this, R.raw.empate)
-        mediaPlayerGanar=MediaPlayer.create(this, R.raw.ganar)
-        mediaPlayerPerder=MediaPlayer.create(this, R.raw.perder)
+        mediaPlayerEmpate = MediaPlayer.create(this, R.raw.empate)
+        mediaPlayerGanar = MediaPlayer.create(this, R.raw.ganar)
+        mediaPlayerPerder = MediaPlayer.create(this, R.raw.perder)
+        sharedPreference = getSharedPreferences("TICTACTOC", Context.MODE_PRIVATE)
+        editor = sharedPreference.edit()
+        humano = sharedPreference.getInt("HUMANO", 0)
+        maquina = sharedPreference.getInt("MAQUINA", 0)
+        empates = sharedPreference.getInt("EMPATES", 0)
+        Log.d("Algo generico humano", humano.toString())
+        Log.d("Algo generico maquina", maquina.toString())
+        Log.d("Algo generico empates", empates.toString())
+        humanoView.text = humano.toString()
+        maquinaView.text = maquina.toString()
+        empateView.text = empates.toString()
     }
 
     private fun checkForWinner(): Int {
@@ -65,6 +86,9 @@ class MainActivity : AppCompatActivity() {
                     mediaPlayerGanar.start()
                     finish = true
                     humano += 1
+                    editor.putInt("HUMANO", humano)
+                    editor.commit()
+                    humanoView.text = humano.toString()
                     return 2
                 }
                 if (mBoard[i] == COMPUTER_PLAYER && mBoard[i + 1] == COMPUTER_PLAYER && mBoard[i + 2] == COMPUTER_PLAYER
@@ -72,7 +96,10 @@ class MainActivity : AppCompatActivity() {
                     Toast.makeText(this, "Ganó la máquina", Toast.LENGTH_LONG).show()
                     mediaPlayerPerder.start()
                     finish = true
-                    maquina +=1
+                    maquina += 1
+                    editor.putInt("MAQUINA", maquina)
+                    editor.commit()
+                    maquinaView.text = maquina.toString()
                     return 3
                 }
                 i += 3
@@ -88,6 +115,9 @@ class MainActivity : AppCompatActivity() {
                 mediaPlayerGanar.start()
                 finish = true
                 humano += 1
+                editor.putInt("HUMANO", humano)
+                humanoView.text = humano.toString()
+                editor.commit()
                 return 2
             }
             if (mBoard[i] == COMPUTER_PLAYER && mBoard[i + 3] == COMPUTER_PLAYER && mBoard[i + 6] == COMPUTER_PLAYER) {
@@ -99,6 +129,9 @@ class MainActivity : AppCompatActivity() {
                 mediaPlayerPerder.start()
                 finish = true
                 maquina += 1
+                editor.putInt("MAQUINA", maquina)
+                editor.commit()
+                maquinaView.text = maquina.toString()
                 return 3
             }
         }
@@ -109,6 +142,9 @@ class MainActivity : AppCompatActivity() {
             mediaPlayerGanar.start()
             finish = true
             humano += 1
+            editor.putInt("HUMANO", humano)
+            editor.commit()
+            humanoView.text = humano.toString()
             return 2
         }
         if (mBoard[0] == COMPUTER_PLAYER && mBoard[4] == COMPUTER_PLAYER && mBoard[8] == COMPUTER_PLAYER ||
@@ -118,6 +154,9 @@ class MainActivity : AppCompatActivity() {
             mediaPlayerPerder.start()
             finish = true
             maquina += 1
+            editor.putInt("MAQUINA", maquina)
+            editor.commit()
+            maquinaView.text = maquina.toString()
             return 3
         }
         if (BOARD_SIZE == 0) {
@@ -125,6 +164,9 @@ class MainActivity : AppCompatActivity() {
             mediaPlayerEmpate.start()
             finish = true
             empates += 1
+            editor.putInt("EMPATES", empates)
+            editor.commit()
+            empateView.text = empates.toString()
             return 1
         }
         return 0
@@ -354,3 +396,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 }
+
+
+
