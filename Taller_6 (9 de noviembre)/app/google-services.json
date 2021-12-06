@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "510732747543",
+    "project_id": "triquimoviles",
+    "storage_bucket": "triquimoviles.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:510732747543:android:a110f44715c37f72db6d52",
+        "android_client_info": {
+          "package_name": "com.example.triqui"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "510732747543-gnhmq1o5cct4et09c0hqat2lmn3iuqfk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyANQUP8w7sg9zHrhxq8TBbYr9K9hE74pCA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "510732747543-gnhmq1o5cct4et09c0hqat2lmn3iuqfk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
