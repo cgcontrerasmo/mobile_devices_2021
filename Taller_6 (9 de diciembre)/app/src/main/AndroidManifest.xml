@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.triqui">
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -12,13 +13,25 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Triqui">
         <activity
+            android:name=".TableroTriquiOnline"
+            android:exported="true" />
+        <activity
+            android:name=".NewSalaActivity"
+            android:exported="true" />
+        <activity
+            android:name=".SalaActivity"
+            android:exported="true" />
+        <activity
+            android:name=".MenuActivity"
+            android:exported="true" />
+        <activity
             android:name=".InterfaceTriqui"
             android:exported="true"
-            android:screenOrientation="sensor"
-            />
+            android:screenOrientation="sensor" />
         <activity
             android:name=".MainActivity"
-            android:exported="true" android:screenOrientation="sensor">
+            android:exported="true"
+            android:screenOrientation="sensor">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

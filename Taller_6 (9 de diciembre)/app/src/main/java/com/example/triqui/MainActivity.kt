@@ -12,6 +12,7 @@ import android.widget.TextView
 import android.widget.Toast
 import java.lang.Math.random
 import android.content.DialogInterface
+import android.content.Intent
 import android.content.SharedPreferences
 import android.media.MediaPlayer
 import android.provider.MediaStore
@@ -53,6 +54,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var mediaPlayerGanar: MediaPlayer
     lateinit var sharedPreference: SharedPreferences
     lateinit var editor: SharedPreferences.Editor
+    var menu = true
 
 
     //private val mRand: Random? = null
@@ -71,16 +73,18 @@ class MainActivity : AppCompatActivity() {
         humano = sharedPreference.getInt("HUMANO", 0)
         maquina = sharedPreference.getInt("MAQUINA", 0)
         empates = sharedPreference.getInt("EMPATES", 0)
-        Log.d("Algo generico humano", humano.toString())
-        Log.d("Algo generico maquina", maquina.toString())
-        Log.d("Algo generico empates", empates.toString())
         humanoView.text = humano.toString()
         maquinaView.text = maquina.toString()
         empateView.text = empates.toString()
-        //getTopics()
+        getTopics()
+        if (menu) {
+            val intent = Intent(this, MenuActivity::class.java)
+            menu=false
+            startActivity(intent)
+        }
     }
 
-    /*fun getTopics() {
+    fun getTopics() {
         val db = Firebase.firestore
         db.collection("salasdejuego")
             .get()
@@ -94,7 +98,7 @@ class MainActivity : AppCompatActivity() {
             .addOnFailureListener { exception ->
                 Log.w("DEBUG", "Error getting documents.", exception)
             }
-    }*/
+    }
 
     private fun checkForWinner(): Int {
         run {
