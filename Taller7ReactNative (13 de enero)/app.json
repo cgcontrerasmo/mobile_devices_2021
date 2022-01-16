@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "Taller7ReactNative",
+    "slug": "Taller7ReactNative",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "Taller7ReactNative"
+}
